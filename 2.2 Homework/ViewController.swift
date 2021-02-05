@@ -22,21 +22,49 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         mainView.layer.cornerRadius = mainView.frame.height / 4
        
-        redSlider.value = 0
-        redSlider.minimumValue = 0
-        redSlider.maximumValue = 1
+        class ViewController: UIViewController {
+       
         redSlider.tintColor = .red
         
-        greenSlider.value = 0
-        greenSlider.minimumValue = 0
-        greenSlider.maximumValue = 1
         greenSlider.tintColor = .green
-        
-        blueSlider.value = 0
-        blueSlider.minimumValue = 0
-        blueSlider.maximumValue = 1
+        chancgeColor()
+        setValue(for: counterOne, counterTwo, counterThree)
        
 }
+    
+    func chancgeColor() {
+        mainView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+    }
+    
+    @IBAction func rgbSlider(_ sender: UISlider) {
+        chancgeColor()
+        switch sender.tag {
+        case 0: counterOne.text = string(from: sender)
+        case 1: counterTwo.text = string(from: sender)
+        case 2: counterThree.text = string(from: sender)
+        default:
+            break
+        }
+    }
+    
+    private func setValue(for labels: UILabel...) {
+        labels.forEach { label in
+            switch label.tag {
+            case 0: counterOne.text = string(from: redSlider)
+            case 1: counterTwo.text = string(from: greenSlider)
+            case 2: counterThree.text = string(from: blueSlider)
+            default: break
+            }
+        }
+    }
+    private func string(from slider: UISlider) -> String {
+        String(format: "%.2f", slider.value)
+    }
+    
+}
+    
+    
+
     
     func chancgeColor() {
         mainView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
