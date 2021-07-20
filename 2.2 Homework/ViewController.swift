@@ -8,7 +8,7 @@
 import UIKit
     
 class ViewController: UIViewController {
-
+    
     @IBOutlet var mainView: UIView!
     @IBOutlet var counterOne: UILabel!
     @IBOutlet var counterTwo: UILabel!
@@ -16,55 +16,50 @@ class ViewController: UIViewController {
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
-
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.layer.cornerRadius = mainView.frame.height / 4
-       
-        class ViewController: UIViewController {
-       
-        redSlider.tintColor = .red
         
+        redSlider.tintColor = .red
         greenSlider.tintColor = .green
         chancgeColor()
-        setValue(for: counterOne, counterTwo, counterThree)
-       
-}
-    
-    func chancgeColor() {
-        mainView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
-    }
-    
-    @IBAction func rgbSlider(_ sender: UISlider) {
-        chancgeColor()
-        switch sender.tag {
-        case 0: counterOne.text = string(from: sender)
-        case 1: counterTwo.text = string(from: sender)
-        case 2: counterThree.text = string(from: sender)
-        default:
-            break
+        
+        
+        
+        func chancgeColor() {
+            mainView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
         }
-    }
-    
-    private func setValue(for labels: UILabel...) {
-        labels.forEach { label in
-            switch label.tag {
-            case 0: counterOne.text = string(from: redSlider)
-            case 1: counterTwo.text = string(from: greenSlider)
-            case 2: counterThree.text = string(from: blueSlider)
-            default: break
+        
+        func rgbSlider(_ sender: UISlider) {
+            chancgeColor()
+            switch sender.tag {
+                case 0: counterOne.text = string(from: sender)
+                case 1: counterTwo.text = string(from: sender)
+                case 2: counterThree.text = string(from: sender)
+                default:
+                    break
             }
         }
+        
+        func setValue(for labels: UILabel...) {
+            labels.forEach { label in
+                switch label.tag {
+                    case 0: counterOne.text = string(from: redSlider)
+                    case 1: counterTwo.text = string(from: greenSlider)
+                    case 2: counterThree.text = string(from: blueSlider)
+                    default: break
+                }
+            }
+        }
+        func string(from slider: UISlider) -> String {
+            String(format: "%.2f", slider.value)
+        }
+        
     }
-    private func string(from slider: UISlider) -> String {
-        String(format: "%.2f", slider.value)
-    }
-    
-}
-    
-    
-
     
     func chancgeColor() {
         mainView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
@@ -76,9 +71,9 @@ class ViewController: UIViewController {
         counterTwo.text = String(format:"%.2f",greenSlider.value)
         counterThree.text = String(format:"%.2f", blueSlider.value )
         chancgeColor()
-    
+        
     }
     
 }
-    
-    
+
+
